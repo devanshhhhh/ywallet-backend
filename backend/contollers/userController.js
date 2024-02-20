@@ -21,14 +21,15 @@ const signup = async (req, res) => {
   newUser.password_hash = hashedPassword;
   const userId = newUser._id;
   await newUser.save();
-
+  const token = jwt.sign({ userId }, jwtSecret);
   await Account.create({
     userId,
     balance: 0,
   });
 
   res.json({
-    message: "User created successfully",
+    message: "User created successfully", 
+    token
   });
 };
 
