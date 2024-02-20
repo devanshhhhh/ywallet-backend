@@ -66,9 +66,9 @@ const updateDetails = async (req, res) => {
 const searchFn = async (req, res) => {
   const filter = req.query.filter || "";
 
-  if (filter === "") {
-    res.json({ user: [] });
-  }
+  // if (filter === "") {
+  //   res.json({ user: [] });
+  // }
   const users = await User.find({
     username: {
       $regex: filter,
