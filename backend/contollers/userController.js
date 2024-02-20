@@ -76,8 +76,8 @@ const searchFn = async (req, res) => {
   });
   const user = users.map((user) => ({
       username: user.username,
-      firstName: user.firstname,
-      lastName: user.lastname,
+      firstname: user.firstname,
+      lastname: user.lastname,
       _id: user._id,
     }))
   res.json({user});
