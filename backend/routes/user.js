@@ -1,4 +1,5 @@
-const express = require("express");
+const express = require("express"); 
+const cors = require("cors"); 
 const userContoller = require("../contollers/userController.js");
 const {
   signupMiddleware,
@@ -21,7 +22,7 @@ router.put("/update", authMiddleware, updaterMiddleware, async (req, res) => {
   await userContoller.updateDetails(req, res);
 });
 
-router.get("/search", authMiddleware, async (req, res) => {
+router.get("/search", cors(), authMiddleware, async (req, res) => {
   await userContoller.searchFn(req, res);
 });
 
