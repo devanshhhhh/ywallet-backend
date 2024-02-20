@@ -74,15 +74,13 @@ const searchFn = async (req, res) => {
       $regex: filter,
     },
   });
-
-  res.json({
-    user: users.map((user) => ({
+  const user = users.map((user) => ({
       username: user.username,
       firstName: user.firstname,
       lastName: user.lastname,
       _id: user._id,
-    })),
-  });
+    }))
+  res.json({user});
 };
 
 module.exports = {
